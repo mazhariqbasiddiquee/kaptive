@@ -116,6 +116,10 @@ userRouter.get("/", async (req, res) => {
 
 userRouter.post("/signup",async(req,res)=>{
      let {name,email,password}=req.body
+     let emailragex=/^[a-zA-Z]+@[a-zA-Z].com$/
+       if(!emailragex.test(email)){
+        return res.status(400).json({ message: 'Invalid  email' });
+       }
      let User=await prisma.User.findUnique({
       where:{
         email
