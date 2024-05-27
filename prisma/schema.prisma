@@ -1,0 +1,67 @@
+datasource db {
+    provider = "mongodb"
+    url       = env("DATABASE_URL")
+  }
+  
+  generator client {
+    provider = "prisma-client-js"
+  }
+
+
+
+
+
+enum Month {
+  January
+  February
+  March
+  April
+  May
+  June
+  July
+  August
+  September
+  October
+  November
+  December
+}
+
+
+  model User {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String  @unique 
+  password String
+
+}
+
+model Income {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  EarningMode  String
+   Month     Month
+  Year      Int
+  Earning      Int
+  UserId       String   @db.ObjectId
+} 
+
+model Expenditure {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  Category  String
+  Month     Month
+  Year      Int
+  Expense   Int
+  UserId    String   @db.ObjectId
+}
+
+
+model Budget{
+   id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  TotalIncome     Int
+  TotalExpense   Int
+  TotalSaving    Int
+  Debt          Int
+  Month     Month
+  Year      Int
+  UserId       String   @db.ObjectId
+
+}
