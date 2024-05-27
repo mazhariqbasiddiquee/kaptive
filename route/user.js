@@ -11,7 +11,7 @@ const prisma = new PrismaClient();
 /**
  * @swagger
  * tags:
- *   - name: User
+ *   - name:A- User
  *     description: Operations related to users
  */
 
@@ -23,7 +23,7 @@ const prisma = new PrismaClient();
  *     summary: Retrieve all users
  *     description: Retrieve a list of all users stored in the database.
  *     tags:
- *       - User  # Reference the 'User' tag here
+ *       - A- User  # Reference the 'User' tag here
  *     responses:
  *       200:
  *         description: A list of users retrieved successfully.
@@ -69,7 +69,7 @@ userRouter.get("/", async (req, res) => {
  *     summary: Register a new user
  *     description: Register a new user with the provided name, email, and password.
  *     tags:
- *       - User  # Reference the 'User' tag here
+ *       - A- User  # Reference the 'User' tag here
  *     requestBody:
  *       required: true
  *       content:
@@ -159,7 +159,7 @@ userRouter.post("/signup",async(req,res)=>{
  *     summary: Authenticate user
  *     description: Authenticate a user with the provided email and password.
  *     tags:
- *       - User  # Reference the 'User' tag here
+ *       - A- User  # Reference the 'User' tag here
  *     requestBody:
  *       required: true
  *       content:
